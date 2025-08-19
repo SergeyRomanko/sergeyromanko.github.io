@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Open Goblins Wood</title>
+  <script>
+    function openApp() {
+      var appScheme = "goblinswood://home";
+      var androidIntent = "intent://home#Intent;scheme=goblinswood;package=idle.goblins.wood.tycoon;end";
+      var androidStore = "https://play.google.com/store/apps/details?id=idle.goblins.wood.tycoon";
+      var iosStore = "https://apps.apple.com/app/id6446766326";
+
+      if (/android/i.test(navigator.userAgent)) {
+        // Android: auto redirect
+        window.location = androidIntent;
+        setTimeout(function () {
+          window.location = androidStore;
+        }, 1500);
+      } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        // iOS: requires user gesture
+        window.location = appScheme;
+        setTimeout(function () {
+          window.location = iosStore;
+        }, 1500);
+      } else {
+        // Desktop fallback
+        window.location = "https://yourdomain.com";
+      }
+    }
+
+    window.onload = function() {
+      if (/android/i.test(navigator.userAgent)) {
+        // Auto open only on Android
+        setTimeout(openApp, 300);
+      }
+    };
+  </script>
+</head>
+<body>
+  <h2>Open Goblins Wood</h2>
+  <p id="ios-instructions" style="display:none;">
+    Tap below to open the game:
+    <br>
+    <button onclick="openApp()" style="margin-top:10px; padding:10px 20px; font-size:16px;">Open Goblins Wood</button>
+  </p>
+  <p>If nothing happens, <a href="https://play.google.com/store/apps/details?id=idle.goblins.wood.tycoon">get it on Google Play</a> or <a href="https://apps.apple.com/app/id6446766326">download on the App Store</a>.</p>
+
+  <script>
+    // Show button only for iOS Safari
+    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+      document.getElementById("ios-instructions").style.display = "block";
+    }
+  </script>
+</body>
+</html>
