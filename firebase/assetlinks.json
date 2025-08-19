@@ -1,0 +1,14 @@
+[
+   {
+      "relation":[
+         "delegate_permission/common.handle_all_urls"
+      ],
+      "target":{
+         "namespace":"android_app",
+         "package_name":"idle.goblins.wood.tycoon",
+         "sha256_cert_fingerprints":[
+            "8B:09:0B:42:9D:CE:19:0D:D8:A3:FD:81:89:93:06:FD:F9:99:E5:65:97:6B:67:AC:CC:30:11:F8:B3:57:C2:3D"
+         ]
+      }
+   }
+]
