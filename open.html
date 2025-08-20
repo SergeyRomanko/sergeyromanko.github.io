@@ -5,16 +5,23 @@
   <title>Open Goblins Wood</title>
   <script>
     function openApp() {
+      var androidApp = "market://details?id=idle.goblins.wood.tycoon";
       var androidStore = "https://play.google.com/store/apps/details?id=idle.goblins.wood.tycoon";
+
+      var iosApp = "itms-apps://itunes.apple.com/app/id6446766326";
       var iosStore = "https://apps.apple.com/app/id6446766326";
 
       if (/android/i.test(navigator.userAgent)) {
-        // Android fallback only
+        // Try Play Store app
+        window.location = androidApp;
+        // Fallback to browser if Play Store app not available
         setTimeout(function () {
           window.location = androidStore;
         }, 1500);
       } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        // iOS fallback only
+        // Try App Store app
+        window.location = iosApp;
+        // Fallback to browser if App Store app not available
         setTimeout(function () {
           window.location = iosStore;
         }, 1500);
@@ -24,10 +31,7 @@
       }
     }
 
-    window.onload = function() {
-      // Just trigger fallback timers; actual app open handled by App Links / Universal Links
-      openApp();
-    };
+    window.onload = openApp;
   </script>
 </head>
 <body>
