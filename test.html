@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Market Test</title>
+</head>
+<body>
+  <h2>Test Market Link</h2>
+
+  <p>
+    <a href="market://details?id=idle.goblins.wood.tycoon">
+      Open Goblins Wood in Play Store (market://)
+    </a>
+  </p>
+
+  <p>
+    <a href="https://play.google.com/store/apps/details?id=idle.goblins.wood.tycoon">
+      Open Goblins Wood in Play Store (https://)
+    </a>
+  </p>
+
+  <script>
+    // Try auto-redirect after 2 seconds
+    setTimeout(function () {
+      window.location = "market://details?id=idle.goblins.wood.tycoon";
+    }, 2000);
+  </script>
+</body>
+</html>
